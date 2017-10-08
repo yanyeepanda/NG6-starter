@@ -11,8 +11,25 @@
   </div>
 
   <div class="results">
+    <div class="result-item" ng-repeat="agent in $ctrl.agentsList">
+      <div class="flex-container">
+        <div class="photo">
+          <img  ng-src="{{agent.ImageUrl}}"/>
+        </div>
 
-    <div class="result-item">
+        <div class="name">
+          <div class="agent-name">
+            {{ agent.Name }}
+          </div>
+
+          <div class="agency-name">
+            {{ agent.SecondaryName }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--<div class="result-item">
       <div class="flex-container">
         <div class="photo">
           <img src="http://ww3.sinaimg.cn/mw690/6b10d613tw1edk0bkiqi3j20ch0g4aai.jpg"/>
@@ -28,43 +45,7 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="result-item">
-      <div class="flex-container">
-        <div class="photo">
-          <img src="http://ww3.sinaimg.cn/mw690/6b10d613tw1edk0bkiqi3j20ch0g4aai.jpg"/>
-        </div>
-
-        <div class="name">
-          <div class="agent-name">
-            Agent Name
-          </div>
-
-          <div class="agency-name">
-            Agency Name
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="result-item">
-      <div class="flex-container">
-        <div class="photo">
-          <img src="http://ww3.sinaimg.cn/mw690/6b10d613tw1edk0bkiqi3j20ch0g4aai.jpg"/>
-        </div>
-
-        <div class="name">
-          <div class="agent-name">
-            Agent Name
-          </div>
-
-          <div class="agency-name">
-            Agency Name
-          </div>
-        </div>
-      </div>
-    </div>
+    </div>-->
 
 
   </div>

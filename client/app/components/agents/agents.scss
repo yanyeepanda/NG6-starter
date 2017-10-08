@@ -1,0 +1,78 @@
+@import "../../common/common";
+
+.agents {
+  .search{
+    height: 200px;
+    width: 100%;
+    background-position: center; 
+    background-size: cover; 
+    background-image: url('https://mail.google.com/mail/u/1/?ui=2&ik=4beded42d4&view=fimg&th=15ee516b99f7b72f&attid=0.1.2&disp=emb&attbid=ANGjdJ9Kyp9WRnPu2CINrRTZPYn9DL-Fdbe-s0AreFW2fdf1H_29-GyXsH3kCZ9momZoXZoOjPEtQoUjFqdgaYoa4642a-pGaUc-IFAlg4gYnxf5No-j40z_14wQuRY&sz=w1054-h648&ats=1507343264794&rm=15ee516b99f7b72f&zw&atsh=1');
+    position: relative;
+
+    .search-input{
+      width: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      .search-field{
+        height: 31px;
+        width: calc(100% - 130px);
+        margin: 0px;
+        font-size: 0.9rem;
+        border: 1px solid $lightBgColor;
+      }
+      .search-button{
+        height: 36px;
+        width: 120px;
+        // padding: 0px;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        font-weight: bold;
+        outline: none;
+        margin-left: -2px;
+        border: 1px solid $lightBgColor;
+        background-color: $bgColor;
+      }
+    }
+  }
+
+  .results{
+    width: 100%;
+    background-color: white;
+    padding: 40px;
+    
+  }
+
+  .result-item{
+    float: left;
+    width: 33%;
+    .flex-container{
+      display: flex;
+
+      .photo{
+        img{
+          width:100px;
+          height: 100px;
+          border-radius: 100px; 
+        }
+      }
+      .name{
+        padding-left: 20px;
+        padding-top: 20px;
+        
+        .agent-name{
+          color: $darkTextColor;
+          font-size: 1.4rem;
+          font-weight: bold;
+        }
+        .agency-name{
+          color: $lightBgColor;
+          font-size: 0.9rem;
+        }
+      }
+    }
+    
+  }
+}

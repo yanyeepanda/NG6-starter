@@ -4,37 +4,41 @@ class AgentsController {
     this.q = $q;
     this.name = 'agents';
     this.agentsList = [];
+    this.windowWidth;
 
-    // var getAgents = function (){
-    //   this.http.get(apiUrl)
-    //       .then(function(data) {
-    //         console.log(data);
-    //         this.agents = data.data.Results;
-    //       });
-    // };
+    if(window.innerWidth >= 1440){
+      this.windowWidth = 'desktop';
+    } else if (window.innerWidth > 768){
+      this.windowWidth = 'laptop';
+    } else if (window.innerWidth > 414){
+      this.windowWidth = 'pad';
+    } else {
+      this.windowWidth = 'phone';
+    };
 
-  
   };
 
-
   getAgents(keyword) {
-    var defer = this.q.defer();
-
     var apiUrl = 'https://api.ratemyagent.com.au/autosearch/agents?SearchTerm=' + keyword;
-      this.http.get(apiUrl)
-            .then(function(data) {
-              defer.resolve(data.data.Results);
-            });
-        return defer.promise;
+    return this.http.get(apiUrl);
+    
   }
 
   searchKeyword(keyword){
     if(keyword){
       this.getAgents(keyword).then((results) =>{
-        this.agentsList = results;
+        this.agentsList = results.data.Results;
       });
     };
   };
+
+  $onInit() {
+    var url = 'https://api.ratemyagent.com.au/autosearch/agents?Take=60';
+    this.http.get(url)
+        .then((data) => {
+          this.agentsList = data.data.Results;
+        });
+  }
 }
 
 AgentsController.$inject=['$http', '$q'];

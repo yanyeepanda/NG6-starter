@@ -6,8 +6,6 @@ let agentsModule = angular.module('agents', [
   uiRouter
 ])
 
-// .controller(['$http'])
-
 .config(($stateProvider) => {
   "ngInject";
   $stateProvider

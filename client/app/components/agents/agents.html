@@ -2,7 +2,6 @@
 <div class="agents">
   
   <div class="search">
-    <!--<h1>{{ $ctrl.ms }}</h1>-->
     <div class="search-input">
       <input class="search-field" ng-model="keyword"/>
       <button class="search-button" ng-click="$ctrl.searchKeyword(keyword)">Search</button>
@@ -11,9 +10,18 @@
   </div>
 
   <div class="results">
-    <div class="result-item" ng-repeat="agent in $ctrl.agentsList">
+    <div ng-if="$ctrl.agentsList.length == 0">
+      <h1>Sorry, there's no matched result.</h1>
+    </div>
+    <div class="result-item" ng-repeat="agent in $ctrl.agentsList" 
+         ng-class="{'desktop-width': $ctrl.windowWidth == 'desktop' || $ctrl.windowWidth == 'laptop',
+                    'pad-width': $ctrl.windowWidth == 'pad',
+                    'phone-width': $ctrl.windowWidth == 'phone'}">
       <div class="flex-container">
-        <div class="photo">
+        <div class="photo" 
+            ng-class="{'desktop-width': $ctrl.windowWidth == 'desktop' || $ctrl.windowWidth == 'laptop',
+                    'pad-width': $ctrl.windowWidth == 'pad',
+                    'phone-width': $ctrl.windowWidth == 'phone'}">
           <img  ng-src="{{agent.ImageUrl}}"/>
         </div>
 
@@ -28,25 +36,6 @@
         </div>
       </div>
     </div>
-
-    <!--<div class="result-item">
-      <div class="flex-container">
-        <div class="photo">
-          <img src="http://ww3.sinaimg.cn/mw690/6b10d613tw1edk0bkiqi3j20ch0g4aai.jpg"/>
-        </div>
-
-        <div class="name">
-          <div class="agent-name">
-            Agent Name
-          </div>
-
-          <div class="agency-name">
-            Agency Name
-          </div>
-        </div>
-      </div>
-    </div>-->
-
 
   </div>
 </div>
